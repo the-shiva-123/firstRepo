@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursor Follower</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .follower {
+      position: absolute;
+     font-size: 5px;
+      pointer-events: none; /* Allows clicks to go through it */
+      transition: transform 0.05s linear;
+    }
+  </style>
+</head>
+<body>          
+
+<div class="follower" id="follower">⭐️</div>
+
+<script>
+  const follower = document.getElementById('follower');
+
+  document.addEventListener('mousemove', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    follower.style.transform = `translate(${x - 20}px, ${y - 20}px)`;
+  });
+</script>
+
+</body>
+</html>
